@@ -1,7 +1,7 @@
-import java.rmi.server.ServerNotActiveException;
+
 import java.util.Scanner;
 
-public class FindSecondLargeestEle {
+public class SecondLarge_SecondSmall {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int len = sc.nextInt();
@@ -10,6 +10,7 @@ public class FindSecondLargeestEle {
             arr[i]= sc.nextInt();
         }
         secondLargestEle(arr,len);
+        secondSmallestEle(arr,len);
     }
     public static void secondLargestEle(int[] arr,int n){
         int large = arr[0];
@@ -23,5 +24,19 @@ public class FindSecondLargeestEle {
             }
         }
         System.out.println("Second larghest :"+second);
+    }
+    
+    public static void secondSmallestEle(int[] arr,int n){
+        int smaller = arr[0];
+        int second = Integer.MAX_VALUE;
+        for(int i=0;i<n;i++){
+            if(arr[i]<smaller){
+                second=smaller;
+                smaller = arr[i];
+            }else if(arr[i]>smaller && arr[i]<second){
+                second =arr[i];
+            }
+        }
+        System.out.println("Second Smallest :"+second);
     }
 }
